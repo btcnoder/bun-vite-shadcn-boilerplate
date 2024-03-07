@@ -16,14 +16,16 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
-
+import { ThemeProvider } from '@/components/theme-provider';
+import { ModeToggle } from '@/components/mode-toggle';
 function App() {
   return (
-    <>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div>
         <Button>Click me</Button>
       </div>
-      <div className="flex">
+      <ModeToggle />
+      <div className="m-2 flex p-2">
         <AlertDialog>
           <AlertDialogTrigger>Open</AlertDialogTrigger>
           <AlertDialogContent>
@@ -44,7 +46,7 @@ function App() {
       <div className="mx-1 flex">
         <ResizablePanelGroup
           direction="vertical"
-          className="min-h-[200px] max-w-md rounded-lg border"
+          className="min-h-[200px] w-full rounded-lg border"
         >
           <ResizablePanel defaultSize={25}>
             <div className="flex h-full items-center justify-center p-6">
@@ -59,7 +61,7 @@ function App() {
           </ResizablePanel>
         </ResizablePanelGroup>
       </div>
-    </>
+    </ThemeProvider>
   );
 }
 
